@@ -4,14 +4,31 @@ import Foundation
 //Find the largest integer in a Stack of Ints
 
 func largest(stack: Stack<Int>) -> Int {
-    return 0
+    var stack = stack
+    var biggest = 0
+    
+    while !stack.isEmpty() {
+        let a = stack.pop()
+        if a! > biggest {
+            biggest = a!
+        }
+    }
+    return biggest
 }
 
 //Problem Two:
 //Find the sum of a Stack of Ints
 
 func sum(stack: Stack<Int>) -> Int {
-    return 0
+    var stack = stack
+    var sum = 0
+    
+    while !stack.isEmpty() {
+        let a = stack.pop()
+        sum += a!
+    }
+    
+    return sum
 }
 
 //Problem Three:
@@ -34,7 +51,15 @@ func sum(stack: Stack<Int>) -> Int {
  */
 
 func reverse<T>(stack: Stack<T>) -> Stack<T> {
-    return Stack<T>()
+    var stack = stack
+    var secondStack = Stack<T>()
+    
+    while !stack.isEmpty() {
+        let a = stack.pop()
+        secondStack.push(element: a!)
+    }
+    
+    return secondStack
 }
 
 
@@ -42,7 +67,20 @@ func reverse<T>(stack: Stack<T>) -> Stack<T> {
 //Determine if two stacks are equal
 
 func equalStacks<T: Equatable>(stackOne: Stack<T>, stackTwo: Stack<T>) -> Bool {
-    return false
+    
+    var stackOne = stackOne
+    var stackTwo = stackTwo
+    
+    while !stackOne.isEmpty() && !stackTwo.isEmpty() {
+        let a = stackOne.pop()
+        let b = stackTwo.pop()
+        
+        if a != b {
+            return false
+        }
+        
+    }
+    return true
 }
 
 
@@ -50,7 +88,22 @@ func equalStacks<T: Equatable>(stackOne: Stack<T>, stackTwo: Stack<T>) -> Bool {
 //Write a function that pushes a new element to the bottom of a Stack
 
 func pushBottom<T>(stack: Stack<T>, newElement: T) -> Stack<T> {
-    return Stack<T>()
+    var stack = stack
+    var newStack = Stack<T>()
+    var reversedStack = Stack<T>()
+    newStack.push(element: newElement)
+    
+    while !stack.isEmpty() {
+        let a = stack.pop()
+        reversedStack.push(element: a!)
+    }
+    
+    while !reversedStack.isEmpty() {
+        let a = reversedStack.pop()
+        newStack.push(element: a!)
+    }
+    
+    return newStack
 }
 
 //Problem Six:
@@ -67,7 +120,10 @@ func pushBottom<T>(stack: Stack<T>, newElement: T) -> Stack<T> {
 
 
 func isBalanced(str: String) -> Bool {
-    return false
+
+   
+    return true
+    
 }
 
 //Bonus: Problem Seven:
